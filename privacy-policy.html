@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="./Assets/favicon.ico" type="image/x-icon">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fafafa;
+      color: #222;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    nav {
+      width: 100%;
+      background: #ffffff;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #eaeaea;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo a {
+      font-size: 26px;
+      font-weight: 700;
+      color: #E27606;
+      text-decoration: none;
+    }
+
+    .nav-center {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .menu {
+      display: flex;
+      gap: 40px;
+      transition: right 0.3s ease;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: black;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      background-color: #177D83;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .menu a:hover::after {
+      width: 100%;
+      animation: heartbeat 1.5s ease-in-out 0.3s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%,100% { width: 100%; }
+      50% { width: 60%; }
+    }
+
+    .menu a.active {
+      font-weight: 500;
+      color: #177D83;
+    }
+
+    .menu a.active::after {
+      width: 100%;
+    }
+
+    .app-btn {
+      padding: 10px 18px;
+      background: #000;
+      color: #fff;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .app-btn:hover {
+      opacity: 0.8;
+    }
+
+    /* Hamburger button */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 20px;
+      cursor: pointer;
+      z-index: 1100;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3px;
+      background: #000;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+     /* Overlay for mobile menu */
+     #overlay {
+      position:fixed; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.4); opacity:0; visibility:hidden; transition:opacity 0.3s ease;
+      z-index:900;
+    }
+    #overlay.active { opacity:1; visibility:visible; }
+
+    /* Container for privacy content */
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 40px 20px;
+      background: white;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-top: 35px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    ul {
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      margin-left: 32px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      padding: 20px;
+      opacity: 0.6;
+      margin-top: 50px;
+    }
+
+    @media(max-width:850px){
+      .hamburger {
+        display: flex;
+      }
+
+      .app-btn.desktop {
+        display: none;
+      }
+
+      .menu {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background: #fff;
+        padding: 80px 20px 20px 20px;
+        gap: 20px;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        z-index: 1100;
+      }
+
+      .menu.active {
+        right: 0;
+      }
+
+      .menu a.app-btn.mobile {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+  <nav>
+    <div class="logo"><a href="./index.html">Rovely</a></div>
+
+    <div class="nav-center">
+      <div class="menu" id="menu">
+        <a href="./aboutUs.html">About us</a>
+        <a href="./privacy-policy.html">Privacy Policy</a>
+        <a href="./terms-of-service.html">Terms of Service</a>
+        <a href="./support.html">Help Center</a>
+      </div>
+    </div>
+
+    <a class="app-btn desktop" href="https://apps.apple.com" target="_blank">Download on App Store</a>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+    <!-- Overlay for mobile menu -->
+    <div id="overlay"></div>
+
+
+  <div class="container">
+    <h1>Privacy Policy</h1>
+
+<p><strong>Effective Date:</strong> The date you first accept these terms.</p>
+
+<p>Rovely (“we,” “us,” or “our”) is operated by its founders. This Privacy Policy explains how we collect, use, and protect information when you use the Rovely mobile application (“App” or “Service”).</p>
+
+<p><strong>Operating location for contact purposes:</strong> Japan<br>
+<strong>Email:</strong> ai.rovely@gmail.com</p>
+
+<p>By using Rovely, you agree to the practices described in this Privacy Policy.</p>
+
+<h2>1. Information We Collect</h2>
+
+<p>Rovely collects limited information necessary to provide and improve the Service.</p>
+
+<p><strong>User-provided information includes:</strong></p>
+<ul>
+  <li>Account email and login credentials</li>
+  <li>Profile information provided through sign-in services</li>
+  <li>Trip titles, itinerary details, and notes entered manually or generated through the App</li>
+</ul>
+
+<p>We do not automatically share your itineraries, reviews, or notes with other users. Any sharing outside the App is entirely your choice.</p>
+
+<h3>Sign-In Services</h3>
+<p>You may choose to sign in using a third-party authentication provider such as Google Sign-In. When you do so, we may receive basic profile information, such as:</p>
+<ul>
+  <li>Name</li>
+  <li>Email address</li>
+  <li>Profile photo (if available)</li>
+</ul>
+
+<p>Authentication is handled by the third-party provider, and their privacy practices apply to the information they collect.</p>
+
+<h3>Analytics</h3>
+<p>Rovely uses Firebase Analytics to understand how users interact with the App and to improve performance and reliability.</p>
+
+<p>Firebase Analytics may collect:</p>
+<ul>
+  <li>Device information</li>
+  <li>App usage data</li>
+  <li>Interaction patterns</li>
+  <li>Crash and performance data</li>
+</ul>
+
+<p>This data is used solely to improve the App and maintain service quality. Analytics data is not used for direct marketing or advertising targeting by Rovely.</p>
+
+<p>You can limit analytics tracking through your device privacy settings.</p>
+
+<h3>Location and Map Services</h3>
+<p>Rovely displays maps and location-based information to support travel planning features.</p>
+
+<p>To provide these services, the App may send location-related requests to mapping and location service providers. These services may process technical information such as:</p>
+<ul>
+  <li>Device identifiers</li>
+  <li>IP address</li>
+  <li>Approximate location data</li>
+  <li>Map interaction data</li>
+</ul>
+
+<p>Rovely does not continuously track your real-time location.</p>
+
+<p>Location access is controlled through your device permissions, and you can disable location access at any time through your device settings.</p>
+
+<h3>Advertising</h3>
+<p>Rovely displays advertisements within the App to support free access to certain features.</p>
+
+<p>We use Google AdMob to provide advertising services. Advertising partners may collect and process information such as:</p>
+<ul>
+  <li>Advertising identifiers</li>
+  <li>Device information</li>
+  <li>Interaction with advertisements</li>
+  <li>Approximate location data</li>
+</ul>
+
+<p>This information may be used to:</p>
+<ul>
+  <li>Display advertisements</li>
+  <li>Measure advertising performance</li>
+  <li>Improve ad relevance</li>
+</ul>
+
+<p>You can limit ad tracking through your device privacy settings.</p>
+
+<p>Rovely does not sell your personal information.</p>
+
+<h3>Third-Party Libraries and Content Services</h3>
+<p>Rovely uses additional third-party software libraries and content services to support functionality, visual presentation, and user experience within the App.</p>
+
+<p>These tools may process limited technical data necessary to operate the App but are not used for advertising, authentication, or user tracking.</p>
+
+<h2>2. AI-Generated Content</h2>
+<p>Rovely may generate itineraries, recommendations, or travel-related content using artificial intelligence technologies.</p>
+
+<p>By using the App, you acknowledge that:</p>
+<ul>
+  <li>AI-generated content may be inaccurate or incomplete</li>
+  <li>Rovely does not guarantee the safety, availability, or suitability of any AI-generated suggestions</li>
+  <li>Users are responsible for verifying all information independently before acting on it</li>
+</ul>
+
+<p>AI-generated content is intended for planning assistance only.</p>
+
+<h2>3. Data Retention &amp; Deletion</h2>
+<p>You can delete your account and associated data at any time directly within the App through your account settings. You may also request deletion by contacting us at:</p>
+
+<p><strong>Email:</strong> ai.rovely@gmail.com</p>
+
+<ul>
+  <li><strong>Deletion timeline:</strong> We will process deletion requests within 30 days.</li>
+  <li><strong>Data removal:</strong> All personal data and itineraries associated with your account will be permanently deleted and cannot be recovered.</li>
+</ul>
+
+<p>Rovely does not retain user content after deletion, except where required for legal compliance, security, or fraud prevention purposes.</p>
+
+<h2>4. How We Use Your Information</h2>
+<ul>
+  <li>Creating and managing user accounts</li>
+  <li>Storing itineraries and travel plans</li>
+  <li>Generating AI-powered recommendations</li>
+  <li>Displaying maps and location-based content</li>
+  <li>Showing advertisements within the App</li>
+  <li>Maintaining security and preventing misuse</li>
+  <li>Improving performance and reliability</li>
+</ul>
+
+<p>We do not sell, rent, or trade your personal information.</p>
+
+<p>Any promotional use of itineraries (such as screenshots for marketing or social media) occurs only if you explicitly opt in.</p>
+
+<h2>5. Data Sharing</h2>
+<p>We may share limited information with trusted service providers that support the operation of the App. These providers process data only as necessary to deliver their services.</p>
+
+<p>These services may include:</p>
+<ul>
+  <li>Authentication providers</li>
+  <li>Analytics providers</li>
+  <li>Mapping and location services</li>
+  <li>Advertising networks</li>
+  <li>Cloud infrastructure providers</li>
+  <li>Technical service providers</li>
+</ul>
+
+<p>Each provider operates under its own privacy policies and data handling practices.</p>
+
+<h2>6. Security</h2>
+<p>We implement reasonable technical and organizational safeguards to protect your information.</p>
+
+<p>However, no digital system can guarantee complete security. By using Rovely, you acknowledge the inherent risks associated with storing and transmitting information online.</p>
+
+<h2>7. Children’s Privacy</h2>
+<p>Rovely is intended for users 13 years of age and older.</p>
+
+<p>We do not knowingly collect personal information from children under 13. If we discover that such information has been collected, we will delete it promptly.</p>
+
+<p>Parents or guardians who believe a child has provided personal information may contact us to request removal.</p>
+
+<h2>8. Your Privacy Choices</h2>
+<p>You can manage your privacy preferences through your device settings, including:</p>
+<ul>
+  <li>Limiting ad tracking</li>
+  <li>Restricting analytics collection</li>
+  <li>Controlling location permissions</li>
+  <li>Deleting your account</li>
+</ul>
+
+<p>You may also contact us directly to request:</p>
+<ul>
+  <li>Access to your data</li>
+  <li>Correction of your data</li>
+  <li>Deletion of your account</li>
+</ul>
+
+<h2>9. Changes to this Privacy Policy</h2>
+<p>We may update this Privacy Policy from time to time.</p>
+
+<p>When significant changes occur:</p>
+<ul>
+  <li>We may notify you through the App or by email</li>
+  <li>You may be required to review and accept the updated policy</li>
+  <li>Continued use of the Service after updates indicates acceptance of the revised policy</li>
+</ul>
+
+<h2>10. Contact Us</h2>
+<p>If you have questions or requests regarding your data, AI-generated content, or account deletion, you can contact us at:</p>
+
+<p><strong>Email:</strong> ai.rovely@gmail.com<br>
+<strong>Operating location:</strong> Japan<br>
+<strong>Legal operator:</strong> Rovely (operated by its founders)</p>
+  </div>
+
+  <footer>
+    © 2025 Rovely. All rights reserved.
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    const overlay = document.getElementById('overlay');
+
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      menu.classList.remove('active');
+      hamburger.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+
+    const currentPage = window.location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll(".menu a");
+    navLinks.forEach(link => {
+      if(link.getAttribute("href").split("/").pop() === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+
+</body>
+</html>

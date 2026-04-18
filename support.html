@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="./Assets/favicon.ico" type="image/x-icon">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat', sans-serif; }
+    body { background:#fafafa; color:#222; line-height:1.7; }
+
+    nav {
+      width:100%;
+      background:#fff;
+      padding:20px 40px;
+      display:flex;
+      align-items:center;
+      border-bottom:1px solid #eaeaea;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+    .logo a {
+      font-size:26px;
+      font-weight:700;
+      color:#E27606;
+      text-decoration:none;
+    }
+    .nav-center { flex:1; display:flex; justify-content:center; }
+    .menu { display:flex; gap:40px; transition:right 0.3s ease; }
+    .menu a { text-decoration:none; color:black; position:relative; overflow:hidden; }
+    .menu a::after { content:""; position:absolute; left:0; bottom:0; height:2px; background:#177D83; width:0; transition:width 0.3s ease; }
+    .menu a:hover::after { width:100%; animation:heartbeat 1.5s ease-in-out 0.3s infinite; }
+    @keyframes heartbeat { 0%,100%{width:100%}50%{width:60%} }
+    .menu a.active { font-weight:500; color:#177D83; }
+    .menu a.active::after { width:100%; }
+
+    .app-btn { padding:10px 18px; background:#000; color:#fff; border-radius:8px; font-size: 15px; font-weight:600; text-decoration:none; transition:opacity 0.2s ease; }
+    .app-btn:hover { opacity:0.8; }
+
+    .hamburger { display:none; flex-direction:column; justify-content:space-between; width:25px; height:20px; cursor:pointer; z-index:1100; }
+    .hamburger span { display:block; height:3px; background:#000; border-radius:2px; transition:all 0.3s ease; }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url('./Assets/heroSupport.jpg');
+      background-size:cover; background-position:center;
+      height:650px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; color:white; padding:10px;
+    }
+    .hero h1 { font-size:2.5rem; margin-bottom:15px; font-weight:600; }
+    .hero p { font-size:1rem; max-width:600px; opacity:0.9; }
+
+    .container { max-width:1200px; margin:0 auto; padding:40px 20px; display:grid; grid-template-columns:1fr 2fr; gap:100px; }
+
+    .faq-intro h2 { font-size:2rem; margin-bottom:25px; text-transform:uppercase; letter-spacing:1px; }
+    .faq-intro p { font-size:0.95rem; color:#4a4a4a; margin-bottom:20px; }
+    .faq-link { color:#E27606; text-decoration:none; font-weight:600; }
+    .faq-link:hover { text-decoration:underline; }
+
+    .faq-list { display:flex; flex-direction:column; }
+    details { border-bottom:1px solid #e0e0e0; padding:20px 0; cursor:pointer; }
+    summary { list-style:none; display:flex; justify-content:space-between; align-items:center; font-weight:500; font-size:1.05rem; color:#222; }
+    summary::-webkit-details-marker { display:none; }
+    summary::after { content:'+'; font-size:1.5rem; font-weight:300; margin-left:10px; transition:transform 0.2s ease; }
+    details[open] summary::after { transform:rotate(45deg); }
+    .faq-content { max-height:0; overflow:hidden; transition:max-height 0.35s ease; }
+    details[open] .faq-content { max-height:500px; }
+    .faq-answer { padding-top:15px; color:#555; font-size:0.95rem; opacity:0; transition:opacity 0.3s ease; }
+    details[open] .faq-answer { opacity:1; }
+
+    footer { text-align:center; font-size:13px; padding:20px; opacity:0.6; margin-top:50px; }
+
+    /* MOBILE */
+    @media(max-width:850px){
+      .container { grid-template-columns:1fr; gap:40px; }
+      .hero h1 { font-size:1.8rem; }
+      .hamburger { display:flex; }
+      .app-btn.desktop { display:none; }
+
+      .menu {
+        flex-direction:column;
+        position:fixed;
+        top:0; right:-100%;
+        width:250px; height:100vh;
+        background:rgba(255,255,255,0.95); padding:80px 20px 20px; gap:20px; box-shadow:-2px 0 10px rgba(0,0,0,0.1); z-index:1001;
+      }
+      .menu.active { right:0; }
+
+      .menu a.app-btn.mobile { width:100%; text-align:center; }
+    }
+      /* Overlay for mobile menu */
+      #overlay {
+      position:fixed; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.4); opacity:0; visibility:hidden; transition:opacity 0.3s ease;
+      z-index:900;
+    }
+    #overlay.active { opacity:1; visibility:visible; }
+
+    .hamburger.active span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+    .hamburger.active span:nth-child(2) { opacity:0; }
+    .hamburger.active span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); 
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo"><a href="./index.html">Rovely</a></div>
+
+    <div class="nav-center">
+      <div class="menu" id="menu">
+        <a href="./aboutUs.html">About us</a>
+        <a href="./privacy-policy.html">Privacy Policy</a>
+        <a href="./terms-of-service.html">Terms of Service</a>
+        <a href="./support.html">Help Center</a>
+      </div>
+    </div>
+
+    <a class="app-btn desktop" href="https://apps.apple.com" target="_blank">Download on App Store</a>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Overlay for mobile menu -->
+  <div id="overlay"></div>
+
+  <main>
+    <header class="hero">
+      <h1>Welcome to the Rovely Help Center!</h1>
+      <p>Whether you're just getting started or need specific answers, we're here to help. Explore our FAQs, step-by-step guides, and expert tips designed to keep your journey with us moving smoothly.</p>
+    </header>
+
+    <section class="container">
+      <div class="faq-intro">
+        <h2>FAQS</h2>
+        <p>Have questions about your next adventure? Explore Rovely's FAQs to quickly find solutions and tips for planning, customizing, and managing your trips.</p>
+        <p>If you would like to request a 🚀 feature, 🪲 report a bug, or have any further questions reach us at <a href="mailto:ai.Rovely@gmail.com" class="faq-link">ai.Rovely@gmail.com</a>.</p>
+      </div>
+
+      <div class="faq-list">
+        <details>
+          <summary>What is Rovely?</summary>
+          <div class="faq-content">
+            <div class="faq-answer">
+              Rovely is a travel app that helps you build trips your way — use AI, start from scratch, or pull from ready-made itineraries. Customize every detail and see your entire journey come to life on an interactive map.
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>How do I create a trip?</summary>
+          <div class="faq-content">
+            <div class="faq-answer">
+              Open the app, tap Plan Trip, and choose how you want to start — use Rovely AI, build from scratch, or pick an itinerary template. You can edit anything at any time, no matter how you begin. Add custom checklists along the way so you never leave anything behind.
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>Can I share my trips with friends?</summary>
+          <div class="faq-content">
+            <div class="faq-answer">
+              You can download or share your trips externally. In-app sharing and collaborating isn’t available yet, but it’s coming in a future update.
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>Do I need an account to use Rovely?</summary>
+          <div class="faq-content">
+            <div class="faq-answer">
+              Yes, an account lets you build and save your trips, checklists, and preferences across all your devices.
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>Does Rovely collect my personal data?</summary>
+          <div class="faq-content">
+            <div class="faq-answer">
+              We do not collect location data or analytics.
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>Can I use Rovely offline?</summary>
+          <div class="faq-content">
+            <div class="faq-answer">
+              Yes, you can view your trips offline. You’ll need an internet connection for full features like building or updating trips.
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>How do I delete my account or data?</summary>
+          <div class="faq-content">
+            <div class="faq-answer">
+              You can delete your account by going to Profile → Personal Details → Delete Account, or by emailing a deletion request. We process all requests within 30 days. Deleting your account permanently erases all your trip data — we don’t retain it.
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>Is Rovely free?</summary>
+          <div class="faq-content">
+            <div class="faq-answer">
+              Yes, Rovely is free!
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>Which countries or regions does Rovely support?</summary>
+          <div class="faq-content">
+            <div class="faq-answer">
+              Rovely can be used worldwide. Destination suggestions and templates cover major travel hubs globally, and you can manually add any location.
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>Who can I contact for support?</summary>
+          <div class="faq-content">
+            <div class="faq-answer">
+              You can reach us at ai.roam@Rovely.com for any questions, feedback, or troubleshooting.
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>How do I report a bug or provide feedback?</summary>
+          <div class="faq-content">
+            <div class="faq-answer">
+              Use the Feedback option in the app or email us. We welcome all suggestions to improve Rovely.
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2025 Rovely. All rights reserved.</footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    const overlay = document.createElement('div');
+    overlay.id = 'overlay';
+    document.body.appendChild(overlay);
+
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      menu.classList.remove('active');
+      hamburger.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+
+    // Highlight active nav link
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll(".menu a").forEach(link => {
+      if(link.getAttribute("href").split("/").pop() === currentPage) link.classList.add("active");
+    });
+  </script>
+</body>
+</html>

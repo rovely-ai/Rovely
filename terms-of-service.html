@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="./Assets/favicon.ico" type="image/x-icon">
+  <style>
+   * { margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat', sans-serif; }
+    body { background:#fafafa; color:#222; line-height:1.7; }
+
+    nav {
+      width:100%; background:#fff; padding:20px 40px;
+      display:flex; justify-content:space-between; align-items:center;
+      border-bottom:1px solid #eaeaea; position:sticky; top:0; z-index:1000;
+    }
+    .logo a { font-size:26px; font-weight:700; color:#E27606; text-decoration:none; }
+    .nav-center { flex:1; display:flex; justify-content:center; }
+    .menu { display:flex; gap:40px; transition:right 0.3s ease; }
+    .menu a { text-decoration:none; color:black; position:relative; overflow:hidden; }
+    .menu a::after { content:""; position:absolute; left:0; bottom:0; height:2px; background:#177D83; width:0; transition:width 0.3s ease; }
+    .menu a:hover::after { width:100%; animation:heartbeat 1.5s ease-in-out 0.3s infinite; }
+    @keyframes heartbeat { 0%,100%{width:100%}50%{width:60%} }
+    .menu a.active { font-weight:500; color:#177D83; }
+    .menu a.active::after { width:100%; }
+
+    .app-btn { padding:10px 18px; background:#000; color:#fff; border-radius:8px; font-weight:600; text-decoration:none; transition:opacity 0.2s ease;      font-size: 15px; }
+    .app-btn:hover { opacity:0.8; }
+
+    .hamburger { display:none; flex-direction:column; justify-content:space-between; width:25px; height:20px; cursor:pointer; z-index:1100; }
+    .hamburger span { display:block; height:3px; background:#000; border-radius:2px; transition:all 0.3s ease; }
+
+
+
+
+    /* Container for terms content */
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 40px 20px;
+      background: white;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-top: 35px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    ul {
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      margin-left: 32px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      padding: 20px;
+      opacity: 0.6;
+      margin-top: 50px;
+    }
+
+    @media(max-width:850px){
+      .container { grid-template-columns:1fr; gap:40px; }
+      .hero h1 { font-size:1.8rem; }
+      .hamburger { display:flex; }
+      .app-btn.desktop { display:none; }
+
+      .menu {
+        flex-direction:column;
+        position:fixed;
+        top:0; right:-100%;
+        width:250px; height:100vh;
+        background:rgba(255,255,255,0.95); padding:80px 20px 20px; gap:20px; box-shadow:-2px 0 10px rgba(0,0,0,0.1); z-index:1001;
+      }
+
+      .menu.active {
+        right: 0;
+      }
+
+      .menu a.app-btn.mobile {
+        width: 100%;
+        text-align: center;
+      }
+    
+        /* Overlay for mobile menu */
+     #overlay {
+      position:fixed; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.4); opacity:0; visibility:hidden; transition:opacity 0.3s ease;
+      z-index:900;
+    }
+    #overlay.active { opacity:1; visibility:visible; }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+ 
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo"><a href="./index.html">Rovely</a></div>
+
+    <div class="nav-center">
+      <div class="menu" id="menu">
+        <a href="./aboutUs.html">About us</a>
+        <a href="./privacy-policy.html">Privacy Policy</a>
+        <a href="./terms-of-service.html">Terms of Service</a>
+        <a href="./support.html">Help Center</a>
+      </div>
+    </div>
+
+    <a class="app-btn desktop" href="https://apps.apple.com" target="_blank">Download on App Store</a>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+    <!-- Overlay for mobile menu -->
+    <div id="overlay"></div>
+
+  <div class="container">
+    <h1>Terms of Service</h1>
+
+      <p><strong>Effective Date:</strong> The date you first accept these Terms.</p>
+
+      <p>These Terms of Service (“Terms”) govern your use of the Rovely mobile application and related services (“Rovely,” “the App,” or “the Service”). Rovely is operated by its founders (“we,” “us,” or “our”).</p>
+
+      <p>By creating an account, accessing, or using Rovely, you agree to be legally bound by these Terms. If you do not agree, you may not use the App.</p>
+
+      <h2>1. Eligibility and Accounts</h2>
+      <ul>
+        <li>You must be at least 13 years old to use Rovely.</li>
+        <li>An account is required to create and manage itineraries. Some read-only features (such as browsing pre-built itineraries or viewing sample content) may be available without an account.</li>
+        <li>You are responsible for maintaining the confidentiality of your login credentials and for all activity that occurs under your account.</li>
+        <li>You may delete your account at any time within the App settings. Upon deletion, your data may be permanently removed from the Service.</li>
+      </ul>
+
+      <h2>2. Use of the Service</h2>
+      <p>Rovely allows you to plan, organize, and manage travel itineraries, including generating itineraries using automated or artificial intelligence tools.</p>
+
+      <p>You agree not to use the App:</p>
+      <ul>
+        <li>For unlawful or fraudulent purposes</li>
+        <li>To interfere with or disrupt the operation or security of the Service</li>
+        <li>To reverse-engineer, modify, copy, or exploit the App or its systems</li>
+        <li>To upload harmful code, malware, or malicious content</li>
+        <li>To attempt unauthorized access to data or accounts</li>
+      </ul>
+
+      <p>We may update, modify, or discontinue features of the Service from time to time. When changes materially affect functionality, we will make reasonable efforts to provide notice.</p>
+
+      <p>The App may require updates in order to continue using certain features or the Service.</p>
+
+      <h2>3. Third-Party Services</h2>
+      <p>The Service may rely on third-party providers to deliver certain features and functionality, including authentication, analytics, mapping, advertising, and content delivery services.</p>
+
+      <p>We do not control and are not responsible for the availability, accuracy, reliability, or performance of third-party services.</p>
+
+      <p>Your use of third-party services may be subject to their own terms and privacy policies.</p>
+
+      <h2>4. Acceptable Use</h2>
+      <p>You agree not to create, store, or share content that:</p>
+      <ul>
+        <li>Is unlawful, harmful, threatening, abusive, or fraudulent</li>
+        <li>Infringes intellectual property rights</li>
+        <li>Contains malware or malicious code</li>
+        <li>Violates the privacy, safety, or rights of others</li>
+        <li>Attempts to mislead, impersonate, or deceive others</li>
+      </ul>
+
+      <p>We reserve the right to remove content or suspend accounts that violate these standards.</p>
+
+      <h2>5. User Content</h2>
+      <p>You may add text, notes, preferences, and itinerary information to Rovely (“User Content”).</p>
+
+      <p>You retain full ownership of your User Content.</p>
+
+      <p>User Content remains private by default and is not visible to other users within the App unless you explicitly choose to share it outside the Service (for example, through export, link sharing, or screenshots).</p>
+
+      <p>We do not use User Content for advertising or promotional purposes unless you explicitly opt in.</p>
+
+      <h2>6. License You Grant to Rovely</h2>
+      <p>To operate the Service, you grant us a limited, non-exclusive, revocable license to store, process, and display your User Content solely for the purpose of providing the Service to you.</p>
+
+      <p>You may revoke this license at any time by deleting your User Content or your account.</p>
+
+      <h2>7. AI-Generated Content</h2>
+      <p>Some content within Rovely may be generated using automated or artificial intelligence systems.</p>
+
+      <p>You acknowledge and agree that:</p>
+      <ul>
+        <li>AI-generated content may be inaccurate, incomplete, or outdated</li>
+        <li>We do not guarantee the accuracy or reliability of generated itineraries or recommendations</li>
+        <li>Travel conditions, prices, schedules, and availability may change</li>
+        <li>You are responsible for verifying important travel information before relying on it</li>
+      </ul>
+
+      <h2>8. No Travel Guarantees</h2>
+      <p>Rovely does not guarantee the availability, safety, cost, hours of operation, accessibility, or quality of any destination, activity, or service referenced in any itinerary.</p>
+
+      <p>All travel decisions and associated risks remain solely your responsibility.</p>
+
+      <h2>9. Payments and Purchases</h2>
+      <p>Certain features of the Service may be offered for a fee in the future.</p>
+
+      <p>If paid features are introduced, pricing and payment terms will be clearly presented within the App before purchase.</p>
+
+      <p>All purchases made through an app store are subject to the applicable store provider’s payment terms and policies.</p>
+
+      <p>We reserve the right to modify pricing or introduce new charges at any time, with reasonable notice where required by law.</p>
+
+      <h2>10. Account Termination</h2>
+      <p>We may suspend or terminate your account if:</p>
+      <ul>
+        <li>You violate these Terms</li>
+        <li>We believe it is necessary to protect the safety, security, or integrity of the Service</li>
+        <li>Required by law or regulatory obligation</li>
+      </ul>
+
+      <p>We will make reasonable efforts to notify you before termination when feasible.</p>
+
+      <p>You may delete your account at any time through the App.</p>
+
+      <p>Upon termination or account deletion, your data may be permanently removed from the Service. You are responsible for exporting or saving any important information before deleting your account.</p>
+
+      <h2>11. Limitation of Liability</h2>
+      <p>To the fullest extent permitted by law, Rovely and its owners, affiliates, partners, and employees are not liable for any direct, indirect, incidental, special, consequential, or punitive damages, including but not limited to:</p>
+
+      <ul>
+        <li>Personal injury</li>
+        <li>Loss of data</li>
+        <li>Travel delays or disruptions</li>
+        <li>Financial loss</li>
+        <li>Lost profits</li>
+        <li>Emotional distress</li>
+      </ul>
+
+      <p>If applicable law does not allow full limitation of liability, Rovely’s total liability is limited to the amount you paid to use the Service, if any.</p>
+
+      <h2>12. Disclaimers</h2>
+      <p>Rovely is provided <strong>“as is”</strong> and <strong>“as available”</strong>, without warranties of any kind, express or implied.</p>
+
+      <p>We do not guarantee:</p>
+      <ul>
+        <li>Uninterrupted or error-free service</li>
+        <li>Accuracy of information</li>
+        <li>Future availability of the App</li>
+        <li>That the Service will meet your expectations</li>
+      </ul>
+
+      <h2>13. No Class Actions</h2>
+      <p>To the maximum extent permitted by law, you and Rovely agree that disputes will be resolved only on an individual basis.</p>
+
+      <p>You may not bring or participate in:</p>
+      <ul>
+        <li>Class actions</li>
+        <li>Class arbitrations</li>
+        <li>Representative lawsuits</li>
+        <li>Private attorney-general actions</li>
+      </ul>
+
+      <h2>14. Governing Law and Jurisdiction</h2>
+      <p>These Terms are governed by the laws of the State of New York, United States, without regard to conflict-of-law principles.</p>
+
+      <p>All disputes arising from or relating to these Terms or the Service will be resolved exclusively in the state or federal courts located in New York State, and you consent to their jurisdiction.</p>
+
+      <h2>15. Changes to These Terms</h2>
+      <p>We may update these Terms from time to time.</p>
+
+      <p>When changes occur:</p>
+      <ul>
+        <li>Updated Terms will be made available within the App</li>
+        <li>Continued use of the Service after updates constitutes acceptance of the revised Terms</li>
+      </ul>
+
+      <p>If you do not agree to the updated Terms, you must stop using the Service and may delete your account.</p>
+
+      <h2>16. Contact Information</h2>
+      <p>Rovely is operated by its founders.</p>
+
+      <p><strong>Operating location (for contact purposes):</strong><br>
+      Japan</p>
+
+      <p><strong>Email:</strong><br>
+      <a href="mailto:ai.rovely@gmail.com">ai.rovely@gmail.com</a></p>
+
+      <p>By creating an account or using Rovely, you acknowledge that you have read, understood, and agreed to be bound by these Terms.</p>
+
+  </div>
+
+  <footer>
+    © 2025 Rovely. All rights reserved.
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    const overlay = document.createElement('div');
+    overlay.id = 'overlay';
+    document.body.appendChild(overlay);
+
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      menu.classList.remove('active');
+      hamburger.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+
+    // Highlight active nav link
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll(".menu a").forEach(link => {
+      if(link.getAttribute("href").split("/").pop() === currentPage) link.classList.add("active");
+    });
+  </script>
+
+</body>
+</html>
