@@ -240,9 +240,12 @@
     </section>
   </main>
 
-  <footer>© 2025 Rovely. All rights reserved.</footer>
+  <footer id="rovely-year">© Rovely AI 2025.</footer>
 
   <script>
+    const currentYear = new Date().getFullYear();
+    document.getElementById("rovely-year").textContent = `© Rovely AI ${currentYear}`;
+
     const hamburger = document.getElementById('hamburger');
     const menu = document.getElementById('menu');
     const overlay = document.createElement('div');
