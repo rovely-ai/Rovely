@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Terms of Service</title>
   <link rel="canonical" href="https://rovelyai.com/terms-of-service.html" />
+  <link rel="alternate" hreflang="en" href="https://rovelyai.com/terms-of-service.html">
+  <link rel="alternate" hreflang="ja" href="https://rovelyai.com/jp/terms-of-service.html">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="./Assets/favicon.ico" type="image/x-icon">
   <style>
@@ -69,6 +71,41 @@
       margin-bottom: 8px;
       margin-left: 32px;
     }
+
+        /* Container for the buttons */
+.legal-lang-nav {
+  margin: 24px 0;
+  display: flex;
+  gap: 12px;
+  justify-content: end;
+}
+
+/* Base style for both buttons */
+.ghost-btn {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 1.5px solid  #E27606;
+; /* Modern Blue */
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #E27606;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover effect */
+.ghost-btn:hover {
+  background-color: rgba(0, 122, 255, 0.05);
+  transform: translateY(-1px);
+}
+
+/* The 'Active' state (the language the user is currently seeing) */
+.ghost-btn.active {
+  background-color: #E27606;
+  color: #ffffff;
+  cursor: default;
+}
 
     footer {
       text-align: center;
@@ -148,6 +185,11 @@
     <div id="overlay"></div>
 
   <div class="container">
+    <div class="legal-lang-nav">
+      <a href="/terms-of-service.html" class="ghost-btn active">English</a>
+     <a href="/jp/terms-of-service.html" class="ghost-btn">日本語</a>
+   </div>
+
     <h1>Terms of Service</h1>
 
       <p><strong>Effective Date:</strong> The date you first accept these Terms.</p>
