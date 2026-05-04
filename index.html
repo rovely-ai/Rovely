@@ -154,6 +154,10 @@
   z-index: 3;
 }
 
+.mobile{
+  display: none;
+}
+
 /* decorative elements */
 .path {
   position: absolute;
@@ -206,7 +210,12 @@
   }
 
   .phone {
-    transform: rotate(5deg);
+    display: none
+  }
+  .mobile{
+    display: flex;
+    width: 250px;
+    z-index: 2;
   }
 }
 
@@ -317,6 +326,7 @@
       <!-- RIGHT VISUAL -->
       <div class="hero-right">
         <img src="./Assets/phone.png" class="phone" />
+        <img src="./Assets/mobile.png" class="mobile" />
 
         <!-- decorative path -->
         <img src="./Assets/flightPath.png" class="path" />
