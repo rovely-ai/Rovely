@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy</title>
+  <link rel="canonical" href="https://rovelyai.com/jp/privacy-policy.html" />
+  <link rel="alternate" hreflang="en" href="https://rovelyai.com/privacy-policy.html">
+  <link rel="alternate" hreflang="ja" href="https://rovelyai.com/jp/privacy-policy.html">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="./Assets/favicon.ico" type="image/x-icon">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat', sans-serif; }
+    body { background:#fafafa; color:#222; line-height:1.7; }
+
+    nav {
+      width:100%; background:#fff; padding:20px 40px;
+      display:flex; justify-content:space-between; align-items:center;
+      border-bottom:1px solid #eaeaea; position:sticky; top:0; z-index:1000;
+    }
+    .logo a { font-size:26px; font-weight:700; color:#E27606; text-decoration:none; }
+    .nav-center { flex:1; display:flex; justify-content:center; }
+    .menu { display:flex; gap:40px; transition:right 0.3s ease; }
+    .menu a { text-decoration:none; color:black; position:relative; overflow:hidden; }
+    .menu a::after { content:""; position:absolute; left:0; bottom:0; height:2px; background:#177D83; width:0; transition:width 0.3s ease; }
+    .menu a:hover::after { width:100%; animation:heartbeat 1.5s ease-in-out 0.3s infinite; }
+    @keyframes heartbeat { 0%,100%{width:100%}50%{width:60%} }
+    .menu a.active { font-weight:500; color:#177D83; }
+    .menu a.active::after { width:100%; }
+
+    .app-btn { padding:10px 18px; background:#000; color:#fff; border-radius:8px; font-weight:600; text-decoration:none; transition:opacity 0.2s ease;      font-size: 15px; }
+    .app-btn:hover { opacity:0.8; }
+
+    .hamburger { display:none; flex-direction:column; justify-content:space-between; width:25px; height:20px; cursor:pointer; z-index:1100; }
+    .hamburger span { display:block; height:3px; background:#000; border-radius:2px; transition:all 0.3s ease; }
+
+
+    /* Container for privacy content */
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 40px 20px;
+      background: white;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-top: 35px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    ul {
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      margin-left: 32px;
+    }
+
+    /* Container for the buttons */
+.legal-lang-nav {
+  margin: 24px 0;
+  display: flex;
+  gap: 12px;
+  justify-content: end;
+
+}
+
+/* Base style for both buttons */
+.ghost-btn {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 1.5px solid  #E27606;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #E27606;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover effect */
+.ghost-btn:hover {
+  background-color: rgba(0, 122, 255, 0.05);
+  transform: translateY(-1px);
+}
+
+/* The 'Active' state (the language the user is currently seeing) */
+.ghost-btn.active {
+  background-color: #E27606;
+  color: #ffffff;
+  cursor: default;
+}
+
+
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      padding: 20px;
+      opacity: 0.6;
+      margin-top: 50px;
+    }
+
+    @media(max-width:850px){
+      .hamburger {
+        display: flex;
+      }
+
+      .app-btn.desktop {
+        display: none;
+      }
+
+      .menu {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background: #fff;
+        padding: 80px 20px 20px 20px;
+        gap: 20px;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        z-index: 1100;
+      }
+
+      .menu.active {
+        right: 0;
+      }
+
+      .menu a.app-btn.mobile {
+        width: 100%;
+        text-align: center;
+      }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+     /* Overlay for mobile menu */
+     #overlay {
+      position:fixed; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.4); opacity:0; visibility:hidden; transition:opacity 0.3s ease;
+      z-index:900;
+    }
+    #overlay.active { opacity:1; visibility:visible; }
+    }
+  </style>
+</head>
+<body>
+
+
+  <nav>
+    <div class="logo"><a href="../index.html">Rovely AI</a></div>
+
+    <div class="nav-center">
+      <div class="menu" id="menu">
+        <a href="../aboutUs.html">About us</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+        <a href="../support.html">Help Center</a>
+      </div>
+    </div>
+
+    <a class="app-btn desktop" href="https://apps.apple.com/us/app/rovely-ai/id6762536395" target="_blank">Download on App Store</a>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+    <!-- Overlay for mobile menu -->
+    <div id="overlay"></div>
+
+
+  <div class="container">
+    <div class="legal-lang-nav">
+      <a href="../privacy-policy.html" class="ghost-btn">English</a>
+      <a href="/jp/privacy-policy.html" class="ghost-btn active">日本語</a>
+    </div>
+
+    <h1>プライバシーポリシー</h1>
+
+    <p><strong>発効日：</strong>本規約に初めて同意した日</p>
+
+    <p>Rovely（以下「当社」といいます）は、その創業者により運営されています。本プライバシーポリシーは、Rovelyのモバイルアプリケーション（以下「本アプリ」または「本サービス」といいます）をご利用いただく際に、当社がどのように情報を収集、利用、保護するかについて説明するものです。</p>
+
+    <p><strong>お問い合わせ先（運営所在地）：</strong>日本<br>
+    <strong>メールアドレス：</strong>ai.rovely@gmail.com</p>
+
+    <p>本サービスをご利用いただくことにより、本プライバシーポリシーに記載された内容に同意したものとみなされます。</p>
+
+    <h2>1. 収集する情報</h2>
+
+    <p>当社は、本サービスの提供および改善に必要な最小限の情報を収集します。</p>
+  
+    <p><strong>ユーザーが提供する情報には、以下が含まれます：</strong></p>
+    <ul>
+      <li>アカウントのメールアドレスおよびログイン情報</li>
+      <li>サインインサービスを通じて提供されるプロフィール情報</li>
+      <li>本アプリ内で手動入力または生成された旅行タイトル、旅程詳細、メモ</li>
+    </ul>
+  
+    <p>当社は、ユーザーの旅程、レビュー、メモを自動的に他のユーザーと共有することはありません。アプリ外での共有は、すべてユーザーご自身の選択によるものです。</p>
+  
+    <h3>サインインサービス</h3>
+    <p>ユーザーは、Googleサインインなどの第三者認証サービスを利用してログインすることができます。この場合、当社は以下の基本的なプロフィール情報を取得することがあります：</p>
+    <ul>
+      <li>氏名</li>
+      <li>メールアドレス</li>
+      <li>プロフィール画像（利用可能な場合）</li>
+    </ul>
+  
+    <p>認証処理は当該第三者プロバイダーにより行われ、そのプライバシーポリシーが適用されます。</p>
+  
+    <h3>分析（Analytics）</h3>
+    <p>当社は、ユーザーの利用状況を把握し、本サービスの性能および信頼性を向上させるためにFirebase Analyticsを使用しています。</p>
+  
+    <p>Firebase Analyticsは以下の情報を収集する場合があります：</p>
+    <ul>
+      <li>デバイス情報</li>
+      <li>アプリの利用データ</li>
+      <li>操作パターン</li>
+      <li>クラッシュおよびパフォーマンス情報</li>
+    </ul>
+  
+    <p>これらのデータは、本サービスの改善および品質維持のためのみに利用され、広告目的で直接利用されることはありません。</p>
+  
+    <p>分析の追跡は、端末のプライバシー設定から制限することができます。</p>
+  
+    <h3>位置情報および地図サービス</h3>
+    <p>当社は、旅行計画機能を提供するために地図および位置情報サービスを利用しています。</p>
+  
+    <p>これに伴い、以下の技術情報が外部サービスに送信される場合があります：</p>
+    <ul>
+      <li>デバイス識別子</li>
+      <li>IPアドレス</li>
+      <li>おおよその位置情報</li>
+      <li>地図の操作情報</li>
+    </ul>
+  
+    <p>当社は、ユーザーのリアルタイム位置情報を継続的に追跡することはありません。</p>
+  
+    <p>位置情報の利用は端末設定により管理され、いつでも無効にすることが可能です。</p>
+  
+    <h3>広告</h3>
+    <p>当社は、一部機能を無料で提供するために、本アプリ内で広告を表示する場合があります。</p>
+  
+    <p>広告配信にはGoogle AdMobを利用しており、以下の情報が収集・処理される場合があります：</p>
+    <ul>
+      <li>広告識別子</li>
+      <li>デバイス情報</li>
+      <li>広告とのインタラクション</li>
+      <li>おおよその位置情報</li>
+    </ul>
+  
+    <p>これらの情報は以下の目的で利用されます：</p>
+    <ul>
+      <li>広告の表示</li>
+      <li>広告効果の測定</li>
+      <li>広告の関連性向上</li>
+    </ul>
+  
+    <p>広告トラッキングは、端末の設定から制限できます。</p>
+  
+    <p>当社は、個人情報を販売することはありません。</p>
+  
+    <h3>第三者ライブラリおよびコンテンツサービス</h3>
+    <p>当社は、本サービスの機能、表示、ユーザー体験を向上させるために、第三者のソフトウェアやサービスを利用しています。</p>
+  
+    <p>これらは必要最小限の技術情報を処理する場合がありますが、広告、認証、ユーザー追跡を目的としたものではありません。</p>
+  
+    <h2>2. AI生成コンテンツ</h2>
+    <p>当社は、人工知能技術を用いて旅程や推薦情報などを生成する場合があります。</p>
+  
+    <p>ユーザーは以下について理解し、同意するものとします：</p>
+    <ul>
+      <li>AI生成コンテンツは不正確または不完全である可能性があること</li>
+      <li>当社はその安全性、正確性、適合性を保証しないこと</li>
+      <li>ユーザーは自己責任で情報を確認する必要があること</li>
+    </ul>
+  
+    <p>AI生成コンテンツは参考情報として提供されます。</p>
+  
+    <h2>3. データの保存および削除</h2>
+    <p>ユーザーは、アプリ内の設定からいつでもアカウントおよび関連データを削除できます。また、以下のメールアドレスから削除を依頼することも可能です：</p>
+  
+    <p><strong>メール：</strong>ai.rovely@gmail.com</p>
+  
+    <ul>
+      <li><strong>削除対応期間：</strong>30日以内に処理します</li>
+      <li><strong>削除内容：</strong>個人情報および関連データは完全に削除され、復元はできません</li>
+    </ul>
+  
+    <p>法令遵守、安全確保、不正防止のために必要な場合を除き、削除後にデータを保持することはありません。</p>
+  
+    <h2>4. 情報の利用目的</h2>
+    <ul>
+      <li>アカウントの作成および管理</li>
+      <li>旅程および旅行計画の保存</li>
+      <li>AIによる推薦の生成</li>
+      <li>地図および位置情報機能の提供</li>
+      <li>広告の表示</li>
+      <li>セキュリティ維持および不正防止</li>
+      <li>サービスの改善</li>
+    </ul>
+  
+    <p>当社は個人情報を販売、貸与、取引することはありません。</p>
+  
+    <p>マーケティング目的での利用（例：スクリーンショット掲載）は、ユーザーの明示的な同意がある場合に限ります。</p>
+  
+    <h2>5. 情報の共有</h2>
+    <p>当社は、サービス提供に必要な範囲で、信頼できる外部事業者と情報を共有する場合があります。</p>
+  
+    <ul>
+      <li>認証サービス</li>
+      <li>分析サービス</li>
+      <li>地図・位置情報サービス</li>
+      <li>広告配信サービス</li>
+      <li>クラウドインフラ</li>
+      <li>技術支援サービス</li>
+    </ul>
+  
+    <p>各事業者はそれぞれ独自のプライバシーポリシーに基づいて運用されます。</p>
+  
+    <h2>6. セキュリティ</h2>
+    <p>当社は合理的な安全対策を講じて情報を保護します。</p>
+  
+    <p>ただし、完全な安全性を保証するものではありません。</p>
+  
+    <h2>7. 子どものプライバシー</h2>
+    <p>本サービスは13歳以上を対象としています。</p>
+  
+    <p>13歳未満の個人情報を意図的に収集することはありません。</p>
+  
+    <h2>8. ユーザーの選択</h2>
+    <ul>
+      <li>広告トラッキングの制限</li>
+      <li>分析の制限</li>
+      <li>位置情報の管理</li>
+      <li>アカウント削除</li>
+    </ul>
+  
+    <h2>9. ポリシーの変更</h2>
+    <p>本ポリシーは随時更新される場合があります。</p>
+  
+    <h2>10. お問い合わせ</h2>
+    <p><strong>メール：</strong>ai.rovely@gmail.com<br>
+    <strong>所在地：</strong>日本<br>
+    <strong>運営者：</strong>Rovely（創業者により運営）</p>
+
+
+  
+  </div>
+
+  <footer id="rovely-year">© Rovely AI 2025.</footer>
+
+  <script>
+  const currentYear = new Date().getFullYear();
+  document.getElementById("rovely-year").textContent = `© Rovely AI ${currentYear}`;
+
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    const overlay = document.getElementById('overlay');
+
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      menu.classList.remove('active');
+      hamburger.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+
+    const currentPage = window.location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll(".menu a");
+    navLinks.forEach(link => {
+      if(link.getAttribute("href").split("/").pop() === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+
+</body>
+</html>

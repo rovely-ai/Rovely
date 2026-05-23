@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service</title>
+  <link rel="canonical" href="https://rovelyai.com/jp/terms-of-service.html" />
+  <link rel="alternate" hreflang="en" href="https://rovelyai.com/terms-of-service.html">
+  <link rel="alternate" hreflang="ja" href="https://rovelyai.com/jp/terms-of-service.html">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="./Assets/favicon.ico" type="image/x-icon">
+  <style>
+   * { margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat', sans-serif; }
+    body { background:#fafafa; color:#222; line-height:1.7; }
+
+    nav {
+      width:100%; background:#fff; padding:20px 40px;
+      display:flex; justify-content:space-between; align-items:center;
+      border-bottom:1px solid #eaeaea; position:sticky; top:0; z-index:1000;
+    }
+    .logo a { font-size:26px; font-weight:700; color:#E27606; text-decoration:none; }
+    .nav-center { flex:1; display:flex; justify-content:center; }
+    .menu { display:flex; gap:40px; transition:right 0.3s ease; }
+    .menu a { text-decoration:none; color:black; position:relative; overflow:hidden; }
+    .menu a::after { content:""; position:absolute; left:0; bottom:0; height:2px; background:#177D83; width:0; transition:width 0.3s ease; }
+    .menu a:hover::after { width:100%; animation:heartbeat 1.5s ease-in-out 0.3s infinite; }
+    @keyframes heartbeat { 0%,100%{width:100%}50%{width:60%} }
+    .menu a.active { font-weight:500; color:#177D83; }
+    .menu a.active::after { width:100%; }
+
+    .app-btn { padding:10px 18px; background:#000; color:#fff; border-radius:8px; font-weight:600; text-decoration:none; transition:opacity 0.2s ease;      font-size: 15px; }
+    .app-btn:hover { opacity:0.8; }
+
+    .hamburger { display:none; flex-direction:column; justify-content:space-between; width:25px; height:20px; cursor:pointer; z-index:1100; }
+    .hamburger span { display:block; height:3px; background:#000; border-radius:2px; transition:all 0.3s ease; }
+
+
+
+
+    /* Container for terms content */
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 40px 20px;
+      background: white;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-top: 35px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    ul {
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      margin-left: 32px;
+    }
+
+        /* Container for the buttons */
+.legal-lang-nav {
+  margin: 24px 0;
+  display: flex;
+  gap: 12px;
+  justify-content: end;
+
+}
+
+/* Base style for both buttons */
+.ghost-btn {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 1.5px solid  #E27606;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #E27606;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover effect */
+.ghost-btn:hover {
+  background-color: rgba(0, 122, 255, 0.05);
+  transform: translateY(-1px);
+}
+
+/* The 'Active' state (the language the user is currently seeing) */
+.ghost-btn.active {
+  background-color: #E27606;
+  color: #ffffff;
+  cursor: default;
+}
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      padding: 20px;
+      opacity: 0.6;
+      margin-top: 50px;
+    }
+
+    @media(max-width:850px){
+      .container { grid-template-columns:1fr; gap:40px; }
+      .hero h1 { font-size:1.8rem; }
+      .hamburger { display:flex; }
+      .app-btn.desktop { display:none; }
+
+      .menu {
+        flex-direction:column;
+        position:fixed;
+        top:0; right:-100%;
+        width:250px; height:100vh;
+        background:rgba(255,255,255,0.95); padding:80px 20px 20px; gap:20px; box-shadow:-2px 0 10px rgba(0,0,0,0.1); z-index:1001;
+      }
+
+      .menu.active {
+        right: 0;
+      }
+
+      .menu a.app-btn.mobile {
+        width: 100%;
+        text-align: center;
+      }
+    
+        /* Overlay for mobile menu */
+     #overlay {
+      position:fixed; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.4); opacity:0; visibility:hidden; transition:opacity 0.3s ease;
+      z-index:900;
+    }
+    #overlay.active { opacity:1; visibility:visible; }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+ 
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo"><a href="../index.html">Rovely AI</a></div>
+
+    <div class="nav-center">
+      <div class="menu" id="menu">
+        <a href="../aboutUs.html">About us</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+        <a href="../support.html">Help Center</a>
+      </div>
+    </div>
+
+    <a class="app-btn desktop" href="https://apps.apple.com/us/app/rovely-ai/id6762536395" target="_blank">Download on App Store</a>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+    <!-- Overlay for mobile menu -->
+    <div id="overlay"></div>
+
+  <div class="container">
+    <div class="legal-lang-nav">
+      <a href="../terms-of-service.html" class="ghost-btn ">English</a>
+     <a href="/jp/terms-of-service.html" class="ghost-btn active">日本語</a>
+   </div>
+   <h1>利用規約</h1>
+
+<p><strong>発効日：</strong>本規約に初めて同意した日</p>
+
+<p>本利用規約（以下「本規約」といいます）は、Rovelyのモバイルアプリケーションおよび関連サービス（以下「Rovely」「本アプリ」または「本サービス」といいます）の利用条件を定めるものです。Rovelyはその創業者により運営されています（以下「当社」といいます）。</p>
+
+<p>アカウントの作成、本アプリへのアクセス、または本サービスの利用により、ユーザーは本規約に法的に拘束されることに同意したものとみなされます。同意いただけない場合は、本アプリをご利用いただけません。</p>
+
+<h2>1. 利用資格およびアカウント</h2>
+<ul>
+  <li>本サービスは13歳以上の方が利用できます。</li>
+  <li>旅程の作成および管理にはアカウントが必要です。一部の閲覧機能（例：既存の旅程の閲覧やサンプルコンテンツの表示）は、アカウントなしでも利用できる場合があります。</li>
+  <li>ユーザーはログイン情報の機密性を保持し、自己のアカウントで行われるすべての活動について責任を負うものとします。</li>
+  <li>ユーザーはアプリ内の設定からいつでもアカウントを削除できます。削除後、データは本サービスから完全に消去される場合があります。</li>
+</ul>
+
+<h2>2. サービスの利用</h2>
+<p>本サービスは、旅行の計画、整理、管理を行う機能を提供し、AI等の自動化ツールによる旅程生成を含みます。</p>
+
+<p>ユーザーは以下の目的で本アプリを利用しないことに同意します：</p>
+<ul>
+  <li>違法または不正な目的</li>
+  <li>本サービスの運用またはセキュリティの妨害</li>
+  <li>本アプリまたはシステムの解析、改変、複製、悪用</li>
+  <li>マルウェアその他有害なコードの送信</li>
+  <li>不正アクセスの試み</li>
+</ul>
+
+<p>当社は、本サービスの機能を随時変更、更新、または終了する場合があります。重要な変更がある場合には、合理的な範囲で通知を行います。</p>
+
+<p>本アプリの一部機能の利用には、アプリの更新が必要となる場合があります。</p>
+
+<h2>3. 第三者サービス</h2>
+<p>本サービスは、認証、分析、地図、広告、コンテンツ配信などの機能提供のために第三者サービスを利用する場合があります。</p>
+
+<p>当社は、これら第三者サービスの可用性、正確性、信頼性、性能について責任を負いません。</p>
+
+<p>第三者サービスの利用には、それぞれの利用規約およびプライバシーポリシーが適用される場合があります。</p>
+
+<h2>4. 適切な利用</h2>
+<p>ユーザーは以下の内容を作成、保存、共有しないことに同意します：</p>
+<ul>
+  <li>違法、有害、脅迫的、虐待的、または不正な内容</li>
+  <li>知的財産権を侵害する内容</li>
+  <li>マルウェア等の悪意あるコードを含む内容</li>
+  <li>他者のプライバシーや権利を侵害する内容</li>
+  <li>誤解を招く、なりすまし、詐欺的な内容</li>
+</ul>
+
+<p>当社は、これらに違反するコンテンツの削除やアカウントの停止を行う権利を有します。</p>
+
+<h2>5. ユーザーコンテンツ</h2>
+<p>ユーザーは、本サービスにテキスト、メモ、設定、旅程情報等（以下「ユーザーコンテンツ」といいます）を追加することができます。</p>
+
+<p>ユーザーコンテンツの所有権はユーザーに帰属します。</p>
+
+<p>ユーザーコンテンツは原則として非公開であり、ユーザーが明示的に共有しない限り、他のユーザーに表示されることはありません。</p>
+
+<p>当社は、ユーザーの明示的な同意がない限り、広告またはプロモーション目的でユーザーコンテンツを利用することはありません。</p>
+
+<h2>6. 当社へのライセンス付与</h2>
+<p>ユーザーは、本サービスの提供に必要な範囲に限り、ユーザーコンテンツを保存、処理、表示するための非独占的かつ取消可能なライセンスを当社に付与します。</p>
+
+<p>このライセンスは、ユーザーがコンテンツまたはアカウントを削除することでいつでも取り消すことができます。</p>
+
+<h2>7. AI生成コンテンツ</h2>
+<p>本サービス内の一部コンテンツは、AIまたは自動化システムにより生成される場合があります。</p>
+
+<p>ユーザーは以下に同意するものとします：</p>
+<ul>
+  <li>AI生成コンテンツは不正確、不完全、または最新でない可能性があること</li>
+  <li>当社はその正確性や信頼性を保証しないこと</li>
+  <li>旅行条件、価格、スケジュール等は変更される可能性があること</li>
+  <li>重要な情報はユーザー自身が確認する必要があること</li>
+</ul>
+
+<h2>8. 旅行に関する保証の否認</h2>
+<p>当社は、旅程に含まれる目的地、サービス、アクティビティ等について、その可用性、安全性、価格、営業時間、品質等を保証しません。</p>
+
+<p>すべての旅行判断およびそれに伴うリスクは、ユーザー自身の責任となります。</p>
+
+<h2>9. 支払いおよび購入</h2>
+<p>本サービスの一部機能は、将来的に有料となる場合があります。</p>
+
+<p>有料機能が導入される場合、価格および支払い条件は購入前に明示されます。</p>
+
+<p>アプリストアを通じた購入には、当該ストアの利用規約が適用されます。</p>
+
+<p>当社は、法令に従い、必要に応じて価格の変更や新たな料金を設定する場合があります。</p>
+
+<h2>10. アカウントの停止および終了</h2>
+<p>当社は以下の場合にアカウントを停止または終了することがあります：</p>
+<ul>
+  <li>本規約に違反した場合</li>
+  <li>サービスの安全性・完全性を保護する必要がある場合</li>
+  <li>法令または規制上の要請がある場合</li>
+</ul>
+
+<p>可能な場合には、事前に通知を行います。</p>
+
+<p>ユーザーはいつでもアカウントを削除できます。</p>
+
+<p>終了または削除後、データは完全に削除される場合があります。重要な情報は事前に保存してください。</p>
+
+<h2>11. 責任の制限</h2>
+<p>法令で許容される最大限の範囲において、当社および関係者は、以下を含むいかなる損害についても責任を負いません：</p>
+
+<ul>
+  <li>人身損害</li>
+  <li>データの損失</li>
+  <li>旅行の遅延または中断</li>
+  <li>経済的損失</li>
+  <li>逸失利益</li>
+  <li>精神的苦痛</li>
+</ul>
+
+<p>適用法により制限が認められない場合、当社の責任は、ユーザーが支払った金額を上限とします。</p>
+
+<h2>12. 免責事項</h2>
+<p>本サービスは「現状有姿」かつ「提供可能な範囲」で提供され、いかなる保証も行いません。</p>
+
+<ul>
+  <li>中断のない利用</li>
+  <li>情報の正確性</li>
+  <li>将来の提供継続</li>
+  <li>ユーザーの期待への適合</li>
+</ul>
+
+<h2>13. 集団訴訟の放棄</h2>
+<p>法令で認められる最大限の範囲において、紛争は個別に解決されるものとします。</p>
+
+<ul>
+  <li>集団訴訟</li>
+  <li>クラス仲裁</li>
+  <li>代表訴訟</li>
+  <li>私的検察的訴訟</li>
+</ul>
+
+<h2>14. 準拠法および管轄</h2>
+<p>本規約は、抵触法の原則にかかわらず、アメリカ合衆国ニューヨーク州法に準拠します。</p>
+
+<p>本規約または本サービスに関連する紛争は、ニューヨーク州の裁判所を専属的合意管轄とします。</p>
+
+<h2>15. 規約の変更</h2>
+<p>当社は、本規約を随時更新する場合があります。</p>
+
+<ul>
+  <li>更新後の規約はアプリ内に掲載されます</li>
+  <li>継続利用により同意したものとみなされます</li>
+</ul>
+
+<p>同意されない場合は、利用を中止しアカウントを削除してください。</p>
+
+<h2>16. お問い合わせ</h2>
+<p>Rovelyは創業者により運営されています。</p>
+
+<p><strong>所在地（連絡先）：</strong><br>
+日本</p>
+
+<p><strong>メール：</strong><br>
+<a href="mailto:ai.rovely@gmail.com">ai.rovely@gmail.com</a></p>
+
+<p>アカウント作成または本サービスの利用により、本規約に同意したものとみなされます。</p>
+
+  </div>
+
+  <footer id="rovely-year">© Rovely AI 2025.</footer>
+
+  <script>
+
+  const currentYear = new Date().getFullYear();
+  document.getElementById("rovely-year").textContent = `© Rovely AI ${currentYear}`;
+
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    const overlay = document.createElement('div');
+    overlay.id = 'overlay';
+    document.body.appendChild(overlay);
+
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      menu.classList.remove('active');
+      hamburger.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+
+    // Highlight active nav link
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll(".menu a").forEach(link => {
+      if(link.getAttribute("href").split("/").pop() === currentPage) link.classList.add("active");
+    });
+  </script>
+
+</body>
+</html>

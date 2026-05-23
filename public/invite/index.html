@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're invited to a trip — Rovely</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f7;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 48px 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        }
+        .icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+        }
+        .subtitle {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        .hint {
+            font-size: 13px;
+            color: #999;
+            line-height: 1.5;
+            margin-bottom: 32px;
+        }
+        .app-store-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .app-store-btn img {
+            height: 52px;
+        }
+        .open-app {
+            display: block;
+            font-size: 14px;
+            color: #007AFF;
+            cursor: pointer;
+            background: none;
+            border: none;
+            text-decoration: underline;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="icon">✈️</div>
+
+        <h1>You're invited!</h1>
+
+        <p class="subtitle">
+            Someone shared their travel itinerary with you on Rovely.
+        </p>
+
+        <p class="hint">
+            Download the app to view and accept the invite.
+            Once installed, tap your original link again to open the trip directly.
+        </p>
+
+        <a class="app-store-btn"
+           href="https://apps.apple.com/app/rovely/idYOURAPPID">
+            <img
+                src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg"
+                alt="Download on the App Store">
+        </a>
+
+        <button class="open-app" id="openAppBtn">
+            Already have the app? Open in Rovely
+        </button>
+    </div>
+
+    <script>
+        const params     = new URLSearchParams(window.location.search);
+        const tripId     = params.get('tripId');
+        const code       = params.get('code');
+
+        // Try to open app directly via URI scheme
+        // Works if app is installed but Universal Link somehow fell through
+        document.getElementById('openAppBtn').addEventListener('click', () => {
+            if (tripId && code) {
+                window.location.href = `rovely://invite?tripId=${tripId}&code=${code}`;
+            }
+        });
+    </script>
+</body>
+</html>
