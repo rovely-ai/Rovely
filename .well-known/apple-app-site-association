@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["8AZVWRRW7T.com.allensdroid.Roamly"],
+        "components": [
+          {
+            "/": "/invite*",
+            "comment": "Matches any /invite URL"
+          }
+        ]
+      }
+    ]
+  }
+}
